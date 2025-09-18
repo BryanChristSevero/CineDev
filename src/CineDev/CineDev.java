@@ -13,11 +13,10 @@
     // Inicializa todos os assentos como "L" (livres).
     inicializarSala();
         
-    //Loop principal do Menu.
-        do {
-            exibirMenu();
-            opcao = scanner.nextInt();
-
+    // Loop principal do Menu.
+    do {
+        exibirMenu();
+        opcao = scanner.nextInt();
             switch (opcao) {
                 case 1:
                     exibirMapa(); // Mostra o mapa da sala.
@@ -29,13 +28,13 @@
                     cancelarIngresso(scanner); // Cancelamento de ingresso.
                     break;
                 case 4:
-                    exibirRelatorio(); // Mostra relatório de ocupação.
+                    exibirRelatorio(); // Mostra o relatório de ocupação.
                     break;
                 case 5:
-                    System.out.println("Encerrando o programa...");
+                    System.out.println(" Encerrando o programa. Até a Próxima.");
                     break;
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println(" Opção inválida.");
             }
         } while (opcao != 5); // Continua até a opção 5 ser escolhida.
     }
@@ -61,16 +60,16 @@
     
     // Mostra visualmente o mapa de assentos (ocupados e livres).
     public static void exibirMapa() {
-    System.out.print("Assentos: ");
+    System.out.print(" Assentos:   ");
     
     for (int i = 1; i <= 20; i++) {
-    System.out.printf("%2d ", i);
+    System.out.printf(" %2d ", i);
     }
     
     System.out.println();
 
     for (int i = 0; i < 10; i++) {
-    System.out.printf("Fileira %2d: ", i + 1);
+    System.out.printf(" Fileira %2d: ", i + 1);
     
     for (int j = 0; j < 20; j++) {
     System.out.print("[" + salaDeCinema[i][j] + "]");
@@ -84,10 +83,10 @@
     
     // Permite ao usuário comprar um ingresso se o assento estiver livre.
     public static void comprarIngresso(Scanner scanner) {
-    System.out.print("Digite o número da fileira (1 a 10): ");
+    System.out.print(" Digite o número da fileira (1 a 10): ");
     int fileira = scanner.nextInt();
     
-    System.out.print("Digite o número do assento (1 a 20): ");
+    System.out.print(" Digite o número do assento (1 a 20): ");
     int assento = scanner.nextInt();
     
     // Verifica se o assento é válido
@@ -96,15 +95,15 @@
     // Verifica se o assento está livre   
     if (salaDeCinema[fileira - 1][assento - 1].equals("L")) {
     salaDeCinema[fileira - 1][assento - 1] = "X";
-    System.out.println("Ingresso comprado com sucesso!");
+    System.out.println(" Ingresso comprado com sucesso!");
     
     } else {
-    System.out.println("Assento já está ocupado.");
+    System.out.println(" Este Assento já está ocupado.");
     
     }
         
     } else {
-    System.out.println("Número de fileira ou assento inválido.");
+    System.out.println(" O Número de fileira ou assento inválido.");
     
     }
     
@@ -112,10 +111,10 @@
     
     // Permite ao usuário cancelar a compra (libera um assento).
     public static void cancelarIngresso(Scanner scanner) {
-    System.out.print("Digite o número da fileira (1 a 10): ");
+    System.out.print(" Digite o número da fileira (1 a 10): ");
     int fileira = scanner.nextInt();
 
-    System.out.print("Digite o número do assento (1 a 20): ");
+    System.out.print(" Digite o número do assento (1 a 20): ");
     int assento = scanner.nextInt();
 
     if (validarAssento(fileira, assento)) {
@@ -123,14 +122,14 @@
     // Verifica se o assento está ocupado antes de liberar.
     if (salaDeCinema[fileira - 1][assento - 1].equals("X")) {
             salaDeCinema[fileira - 1][assento - 1] = "L";
-    System.out.println("Compra cancelada com sucesso!");
+    System.out.println(" Compra cancelada com sucesso!");
             
     } else {
-    System.out.println("O assento já está livre.");
+    System.out.println(" O assento está livre.");
     }
         
     } else {
-        System.out.println("Número de fileira ou assento inválido.");
+    System.out.println(" Número de fileira ou assento inválido. Por favor Tente Novamente.");
     }
     
     }
@@ -140,7 +139,7 @@
     int total = 10 * 20;
     int ocupados = 0;
     
-    // Conta quantos estão ocupados.
+    // Conta quantos assentos estão ocupados.
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 20; j++) {
             if (salaDeCinema[i][j].equals("X")) {
