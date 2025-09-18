@@ -6,8 +6,8 @@
     static String[][] salaDeCinema = new String[10][20];
 
     public static void main(String[] args) {
-         
-    Scanner scanner = new Scanner(System.in);
+    
+        Scanner scanner = new Scanner(System.in);
     int opcao;
     
     // Inicializa todos os assentos como "L" (livres).
@@ -58,7 +58,7 @@
 
     }
     
-    // Mostra visualmente o mapa de assentos (ocupados e livres).
+    // Mostra o mapa dos assentos (ocupados e livres).
     public static void exibirMapa() {
     System.out.print(" Assentos:   ");
     
@@ -75,13 +75,12 @@
     System.out.print("[" + salaDeCinema[i][j] + "]");
     }
     
-    System.out.println();
-            
+    System.out.println();       
     }
     
     }
     
-    // Permite ao usuário comprar um ingresso se o assento estiver livre.
+    // Permite ao cliente comprar um ingresso se o assento estiver livre.
     public static void comprarIngresso(Scanner scanner) {
     System.out.print(" Digite o número da fileira (1 a 10): ");
     int fileira = scanner.nextInt();
@@ -89,27 +88,25 @@
     System.out.print(" Digite o número do assento (1 a 20): ");
     int assento = scanner.nextInt();
     
-    // Verifica se o assento é válido
+    // Verifica se o assento é válido.
     if (validarAssento(fileira, assento)) {
      
-    // Verifica se o assento está livre   
+    // Verifica se o assento está livre.  
     if (salaDeCinema[fileira - 1][assento - 1].equals("L")) {
     salaDeCinema[fileira - 1][assento - 1] = "X";
     System.out.println(" Ingresso comprado com sucesso!");
     
     } else {
-    System.out.println(" Este Assento já está ocupado.");
-    
+    System.out.println(" Este Assento já foi ocupado.");
     }
         
     } else {
     System.out.println(" O Número de fileira ou assento inválido.");
-    
     }
     
     }
     
-    // Permite ao usuário cancelar a compra (libera um assento).
+    // Permite ao cliente cancelar a compra (libera um assento).
     public static void cancelarIngresso(Scanner scanner) {
     System.out.print(" Digite o número da fileira (1 a 10): ");
     int fileira = scanner.nextInt();
@@ -162,7 +159,6 @@
     // Verifica se os valores digitados estão dentro dos limites da sala.
     public static boolean validarAssento(int fileira, int assento) {
     return fileira >= 1 && fileira <= 10 && assento >= 1 && assento <= 20;
-
     }
  
 }
